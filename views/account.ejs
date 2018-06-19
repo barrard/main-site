@@ -1,0 +1,114 @@
+<!--  ---
+layout: page
+title: Pricing
+--- -->
+<br />
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12">
+<h1>Settings</h1><br /><br />
+    <% include partials/account-menu.ejs %>
+
+<br />
+<br />
+<br />
+
+<form>
+  <fieldset >
+
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-5 ">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-md-2 col-form-label">Email</label>
+                                <div class="col-9 col-md-10">
+                                    <input class="form-control" type="email" value="<%= user.email %>" id="example-text-input">
+                                    <p class="form-text text-muted">
+                                        This is your username.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-md-2 col-form-label">Password</label>
+                                <div class="col-9 col-md-10">
+                                    <input class="form-control" type="password" value="" id="example-text-input">
+                                    <p class="form-text text-muted">
+                                        Must be 8 characters long
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-md-2 col-form-label">Current Password</label>
+                                <div class="col-9 col-md-10">
+                                    <input class="form-control" type="password" value="" id="example-text-input">
+                                    <p class="form-text text-muted">
+                                        Enter your current password to save these changes.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-9 col-md-10">
+                                        <button type="submit" class="btn btn-primary">Save settings</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-sm-3 offset-sm-3 float-md-right">
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-12 col-form-label">Following</label>
+                                <div class="col-10">
+                                    <a href="">Opt out of Following</a><br />
+                                </div>
+                            </div>
+                            <!-- <div class="form-group row">
+                                <label for="example-email-input" class="col-12 col-form-label">Facebook</label>
+                                <div class="col-10">
+                                    <a href="" class="btn btn-success">Login with facebook</a><br />
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <label for="example-email-input" class="col-12 col-form-label">Security</label>
+                                <div class="col-10">
+                                    <a href="">Verify Your Email Enable Up Two Factor </a><br />
+                                    <a href="">Authentication </a><br />
+                                    <a href="">Log me out on all other devices</a><br />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-url-input" class="col-12 col-form-label">Delete&nbsp;Account</label>
+                                <div class="col-10">
+                                    <a href="">Delete my Crowdfunding account</a><br />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+<hr />
+
+  </fieldset>
+</form>
+
+                </div>
+   <div class="col-sm-6 ">
+<h3>Login History</h3>
+<p>This feature provides information about your account usage and other related changes. If you see any suspicious activity, change your password immediately.</p>
+<p>No security events found.</p>
+
+
+
+                </div>
+
+
+
+            </div>
+            <br />
+<br />
+<br />
+            </div>

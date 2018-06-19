@@ -1,0 +1,181 @@
+<!---
+layout: page
+title: Pricing
+hide_footer: true
+- -->
+
+<br />
+<br />
+<br />
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="col-sm-12">
+      <ul class="breadcrumb">
+        <li><a href="edit-bascis">Basics</a></li>
+        <li><a href="edit-story">Story</a></li>
+        <li><a href="edit-perks">Perks</a></li>
+        <li><a href="edit-about">About you</a></li>
+        <li><a href="edit-accounts">Account</a></li>
+      </ul>
+
+    </div>
+
+
+    <div class="col-sm-8">
+      <h1>Tell us more about yourself</h1>
+      <p>Add a bio and links to your website and social media profiles. Think of it as your creative resume.</p>
+
+      <form>
+
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Profile photo</label>
+            <div class="col-9">
+              <div style="border: 1px dashed #000; background: #fff; width: 100%; display: block; padding: 20px;" class="text-center">
+                <p class="text-center">
+                  <a href=""><strong>Choose an image from your computer</strong></a>
+                </p>
+                <p>This is the main image associated with your project. Make it count!</p>
+                <p>At least <strong>1024x576 pixels</strong> • 16:9 aspect ratio</p>
+              </div>
+              <br />
+              <p>Have fun – add a video! Projects with a video have a much higher chance of success. For a dose of inspiration,
+                check out the Creator Handbook. Need some help? Visit our Creator FAQ.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Prototype gallery</label>
+            <div class="col-9">
+              <p class="mt-1">Creating a physical product? Be sure to add explicit demos of working prototypes. Photos and videos are always
+                a great way to share your creative process and show backers what you’ve accomplished so far.</p>
+              <a href="" class="btn btn-primary">Edit gallery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Name</label>
+            <div class="col-9">
+
+                  <input class="form-control" type="search" value="" id="example-search-input">
+                                <p class="mt-1">Use your project description to share more about what you’re raising funds to do and how you plan to pull it
+                off. It’s up to you to make the case for your project.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Facebook Connect</label>
+            <div class="col-9">
+              <p class="mt-1">Build trust with potential backers by showing there's a real person behind the project. Your name and number of friends will be displayed.</p>
+              <a href="" class="btn btn-success">Login with facebook</a><br />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Biography</label>
+            <div class="col-9">
+                  <textarea class="form-control" rows="6" type="text" value="" id="example-email-input"></textarea>
+
+              <p class="mt-4">Build trust with potential backers by showing there's a real person behind the project. Your name and number of friends will be displayed.</p>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Your location</label>
+            <div class="col-9">
+              <div class="input-group  input-group-lg">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
+                </span>
+                <input type="text" class="form-control" placeholder="Search for...">
+              </div>              
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Websites</label>
+            <div class="col-9">
+                <input class="form-control" type="url" value="" id="example-tel-input" />
+                <p>Some suggestions: Link to your blog, portfolio, Twitter, Instagram, etc.</p>              
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group light-blue">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label">Google Analytics</label>
+            <div class="col-9">
+                <input class="form-control" placeholder="UA-XXXXXXXX-X" type="text" class="text">    
+                <p>Enter your tracking ID to enable Google Analytics for your project.</p>             
+         
+            </div>
+          </div>
+        </div>
+<br />
+<br />
+<br />
+</form>
+    </div>
+
+    
+
+
+  <div class="col-sm-4">
+    <div class="row">
+      <div class="col-sm-10 offset-sm-2">
+
+
+        <strong>Getting started?</strong>
+        <p>Visit Campus to read discussions about preparing for a project and more.</p>
+        <br />
+        <strong>Preview</strong>
+        <hr />
+        
+        				        {% for project in site.data.projects limit:1 %}
+					          {% include box project=project %}
+				        {% endfor %} 
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<br />
+<br />
+<br />
+</div>
+
+<nav class="navbar fixed-bottom navbar-light bg-faded" style="background: #fff; border-top: 1px solid #eee">
+  <div class="container">
+
+    <a href="edit" class="btn btn-primary btn-lg float-right">Save campaign</a>
+    <a href="edit" class="btn btn-link btn-lg float-right">Discard changes</a>
+
+  </div>
+</nav>

@@ -1,0 +1,48 @@
+<!-- address-line1 input-->
+<div class="form-group">
+  <label for="address_line1">Address Line 1</label>
+  <div class="controls">
+    <input value="<%= user.current_address.address_line1%>" name="address_line1" type="text" placeholder="address line 1" class="form-control form-control-lg">
+    <p class="help-block">Street address, P.O. box, company name, c/o</p>
+  </div>
+</div>
+<!-- address-line2 input-->
+<div class="form-group">
+  <label for="address_line2">Address Line 2</label>
+  <div class="controls">
+    <input value="<%= user.current_address.address_line2%>" name="address_line2" type="text" placeholder="address line 2" class="form-control form-control-lg">
+    <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
+  </div>
+</div>
+<!-- city input-->
+<div class="form-group">
+  <label for="city">City / Town</label>
+  <div class="controls">
+    <input value="<%= user.current_address.city%>" name="city" type="text" placeholder="city" class="form-control form-control-lg">
+    <p class="help-block"></p>
+  </div>
+</div>
+<!-- region input-->
+<div class="form-group">
+  <label for="region">State / Province / Region</label>
+  <div class="controls">
+    <input value="<%= user.current_address.region%>"  name="region" type="text" placeholder="state / province / region" class="form-control form-control-lg">
+    <p class="help-block"></p>
+  </div>
+</div>
+<!-- postal-code input-->
+<div class="form-group">
+  <label for="postal_code">Zip / Postal Code</label>
+  <div class="controls">
+    <input value="<%= user.current_address.postal_code%>"  name="postal_code" type="text" placeholder="zip or postal code" class="form-control form-control-lg">
+    <p class="help-block"></p>
+  </div>
+</div>
+<!-- country select -->
+<div class="form-group">
+  <label for="country">Country</label>
+  <div class="controls">
+    <input value="<%= user.current_address.country%>" type="text"  name="country" class="form-control form-control-lg">
+  </div>
+</div>
+

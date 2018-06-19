@@ -1,0 +1,62 @@
+<div class="card box">
+  <a href="project.html">
+    <!-- <img src="http://i.expresspixel.com/unsplash.it/310/210?image=24" class="img-fluid hidden-xs-down" />
+    <img src="http://i.expresspixel.com/unsplash.it/610/210?image=24" class="img-fluid hidden-sm-up" /> -->
+    <img src="<%= crowdsale.photos[1] %>" class="img-fluid hidden-xs-down" />
+    <img src="<%= crowdsale.photos[1] %>" class="img-fluid hidden-sm-up" />
+  </a>
+  <div class="card-block" class="pb-1" style="position: relative; padding-bottom: 60px; min-height: 250px;">
+
+    <h6>
+      <a href="project.html"><%= crowdsale.title %></a>
+    </h6>
+    <p class="text-muted">By
+      <strong>
+        <a href="project.html" class="text-muted"><%= crowdsale.title %></a>
+      </strong>
+    </p>
+    <p class="desc"><%= crowdsale.title %></p>
+    <!-- <p class="desc"><%= crowdsale.symbol %></p> -->
+    <!-- <p class="desc"><%= crowdsale.goal %></p> -->
+    <!-- <p class="desc"><%= crowdsale.weiRaised %></p> -->
+    <p class="desc"><%= (crowdsale.weiRaised / crowdsale.goal)%></p>
+
+    <div style="position: absolute; bottom: 10px; width: 86%; ">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: <% crowdsale.symbol %>%" aria-valuenow="<% crowdsale.symbol %>"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <p class="mb-1"><% crowdsale.symbol %>% funded</p>
+    </div>
+
+
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row ">
+      <div class="col-12">
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Backers</p>
+            <h6 class="mt-0 mb-0">
+              <strong>420</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Pledged</p>
+            <h6 class="mt-0 mb-0">
+              <strong>&dollar;50,000</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Days&nbsp;Left</p>
+            <h6 class="mt-0 mb-0">
+              <strong>11</strong>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

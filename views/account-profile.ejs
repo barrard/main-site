@@ -1,0 +1,190 @@
+<!---
+layout: page
+title: Pricing
+- -->
+
+<br />
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12">
+<h1>Settings</h1><br /><br />
+    <% include partials/account-menu.ejs %>
+
+<br />
+<br />
+<br />
+
+<!-- <form> -->
+  <fieldset >
+
+                    <div class="row">
+                        <div class="col-sm-5 ">
+                            <div class="form-group">
+                                <label for="firstname">First Name</label>
+                                <div>
+                                    <input class="form-control" type="text" value="<%= user.firstname%>" name="firstname">
+                                    <p class="form-text text-muted">
+                                        Your name is displayed on your profile.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name</label>
+                                <div>
+                                    <input class="form-control" type="text" value="<%= user.lastname%>" name="lastname">
+                                    <p class="form-text text-muted">
+                                        Your name is displayed on your profile.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile_img">Picture</label>
+                                <div>
+                                    <p class="form-control-static">
+                                    <input type="file" value="<%= user.profile_img %>" name="profile_img">
+                                        <div style="border: 1px dashed #000; width: 100%; display: block; height: 100px; line-height: 100px" class="text-center">
+                                            Choose an image from your computer    
+                                        </div>
+                                    </p>
+                                    <p class="form-text text-muted">
+                                        JPEG, PNG, GIF, or BMP
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="biography">Biography</label>
+                                <div>
+                                    <textarea class="form-control" name="user_bio" rows="3" value="<%= user.user_bio%>"><%= user.user_bio %></textarea>
+                                    <p class="form-text text-muted">
+                                        We suggest a short bio. If it's 300 characters or less it'll look great on your profile.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="example-tel-input">Income</label>
+                              <div>
+                                <input class="form-control" type="text" value="<%= user.income %>" placeholder="$40,000" name="income">
+                                <p class="form-text text-muted">
+                                  How much total family income do you have per year
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="example-tel-input">Assets</label>
+                              <div>
+                                <input class="form-control" type="text" value="<%= user.assets %>" placeholder="car, tv, checking account with $1,000" name="assets">
+                                <p class="form-text text-muted">
+                                  Comma seperated list of your assets over $500.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="example-tel-input">Education</label>
+                              <div>
+                                <input class="form-control" type="text" value="<%= user.education %>" placeholder="Some college" name="education">
+                                <p class="form-text text-muted">
+                                  What is your highest level of education.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="example-tel-input">Credit</label>
+                              <div>
+                                <input class="form-control" type="text" value="<%= user.credit_score %>" placeholder="700" name="credit_score">
+                                <p class="form-text text-muted">
+                                  Your credit score is important to investors.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="example-tel-input">Background Check</label>
+                              <div>
+                                <input class="form-control" type="text" value="<%= user.background_check %>" placeholder="Crimes are bad..." name="background_check">
+                                <p class="form-text text-muted">
+                                  We suggest a short bio. If it's 300 characters or less it'll look great on your profile.
+                                </p>
+                              </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-sm-5 offset-sm-1 float-md-right">
+
+
+
+                            <div class="form-group">
+                                <label for="example-url-input">YouTube&nbsp;URL</label>
+                                <div>
+                                    <input class="form-control" type="url" value="<%= user.youtube_url %>" name="youtube_url">
+                                    <p class="form-text text-muted">
+                                        Add a YouTube video.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="example-tel-input">Website</label>
+                                <div>
+                                    <input class="form-control" type="text" value="<%= user.website %>" placeholder="http://example.com" name="website">
+                                    <p class="form-text text-muted">
+                                      Do you have a personal website?
+                                    </p>
+                                </div>
+                            </div>
+
+                            <% include partials/address_form %>
+
+
+
+                        </div>
+                    </div>
+<hr />
+    <button onclick="update_user_data()" class="btn btn-primary">Save settings</button>
+    <!-- <button type="submit" class="btn btn-link">View profile</button> -->
+  </fieldset>
+<!-- </form> -->
+<script>
+    function update_user_data(){
+      
+        $.post('/update_user_profile', {
+            firstname:$('[name="firstname"]').val(),
+            lastname:$('[name="lastname"]').val(),
+            profile_img:$('[name="profile_img"]').val(),
+            user_bio:$('[name="user_bio"]').val(),
+            youtube_url:$('[name="youtube_url"]').val(),
+            website:$('[name="website"]').val(),
+            current_address:{
+                address_line1: $('[name="address_line1"]').val(),
+                address_line2: $('[name="address_line2"]').val(),
+                city: $('[name="city"]').val(),
+                region: $('[name="region"]').val(),
+                postal_code: $('[name="postal_code"]').val(),
+                country: $('[name="country"]').val()
+            },
+            income:$('[name="income"]').val(),
+            assets:$('[name="assets"]').val(),
+            education:$('[name="education"]').val(),
+            credit_score:$('[name="credit_score"]').val(),
+            background_check:$('[name="background_check"]').val()
+        }, (resp)=>{
+          if(resp){
+            console.log(resp)
+            new Toast('Profile saved!', Toast.TYPE_DONE, 3000)
+          }
+        })
+    }
+</script>
+
+                </div>
+
+
+
+            </div>
+            <br />
+<br />
+<br />
+            </div>

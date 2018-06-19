@@ -1,0 +1,80 @@
+<nav class="navbar navbar-toggleable-sm navbar-light bg-primary fixed-top" id="navbar" v-cloak>
+  <div class="container top-nav" v-if="!search">
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">CrowdFundr</a>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%=  page.title == 'Home' ?  'active' : '' %>" >
+          <a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;&nbsp;Home&nbsp;&nbsp;|
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item <%=  page.title == 'Explore' ?  'active' : '' %>" >
+          <a class="nav-link" href="explore"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp; Explore&nbsp;&nbsp;|</a>
+        </li>
+        <% if(typeof user == "undefined" || user == null ||  !user.crowdsale_init){ %>
+        <li class="nav-item <%=  page.title == 'Edit' || page.title == 'Start' ?  'active' : '' %>">
+          <a class="nav-link" href="start"><i class="fa fa-money"></i>&nbsp;&nbsp; Start a project&nbsp;&nbsp;|</a>
+        </li>
+        <%}else{%>
+        <li class="nav-item <%=  page.title == 'Edit' || page.title == 'Start' ?  'active' : '' %>">
+          <a class="nav-link" href="edit-basics">
+            <i class="fa fa-money"></i>&nbsp;&nbsp;Edit/Manage Crowdsale&nbsp;&nbsp;|</a>
+        </li>
+        <% } %>
+        <li class="nav-item <%=  page.title == 'About' ?  'active' : '' %>">
+          <a class="nav-link" href="/about"><i class="fa fa-universal-access"></i> &nbsp;&nbsp;About us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item hidden-sm-down">
+          <a class="nav-link" href="#" v-on:click.prevent="showSearchBar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </a>
+        </li> -->
+        <!-- <li class="nav-item hidden-sm-up">
+          <a class="nav-link" href="#" v-on:click.prevent="showSearchBar">Search</a>
+        </li> -->
+        <% if (!user) {%>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target=".login-modal-lg"><i class="fa fa-sign-in" aria-hidden="true"></i> &nbsp;&nbsp;Login&nbsp;&nbsp;|</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target=".signup-modal-lg"><i class="fa fa-wpforms" aria-hidden="true"></i> &nbsp;&nbsp;Sign up</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/account-profile"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; My Profile&nbsp;&nbsp;|</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp; Logout</a>
+        </li>
+        <% } %>
+      </ul>
+      <form class="form-inline" style="display: none">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" v-else>
+    <div class="input-group search-bar">
+      <span class="input-group-addon">
+        <i class="icon-magnifier icons"></i>
+      </span>
+      <input type="text" class="form-control form-control-lg" placeholder="Search">
+      <span class="input-group-addon">
+        <a href="" class="text-muted" v-on:click.prevent="hideSearchBar">
+          <i class="icon-close icons"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+
+</nav>

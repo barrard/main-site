@@ -1,0 +1,68 @@
+<ul class="nav nav-tabs hidden-sm-down">
+
+    <!-- {% for link in site.data.settings.navigation %}
+      {% assign current = nil %}
+      {% if page.url == link.url or page.layout == link.layout %}
+        {% assign current = 'active' %}
+      {% endif %}
+
+      <li class="nav-item {{ current }}">
+        <a class="nav-link {{ current }}" href="{{ link.urlTo }}">{{ link.text }}</a>
+      </li>
+    {% endfor %} -->
+
+    <li class="nav-item">
+        <a class="nav-link <%=  page.title == 'Account' ?  'active' : '' %>" href="account">Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link <%=  page.title == 'Account Profile' ?  'active' : '' %>" href="account-profile">My profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link <%=  page.title == 'Account Balances' ?  'active' : '' %>" href="account-balances">My Balance</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link <%=  page.title == 'Account Wallet' ?  'active' : '' %>" href="account-wallet">Account Wallet</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link <%=  page.title == 'Explore' ?  'active' : '' %>" href="start">Create new ad</a>
+    </li> -->
+</ul>
+
+<div class="btn-group  btn-block  btn-group-justified hidden-md-up" role="group" aria-label="Button group with nested dropdown">
+  <div class="btn-group   btn-block" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- {% for link in site.data.settings.navigation %}
+        {% assign current = nil %}
+        {% if page.url == link.url or page.layout == link.layout %}
+            {% assign current = link.text %}
+        {% endif %}
+        {{ current }}
+        {% endfor %} -->
+        <%= page.title%>
+    </button>
+    <div class="dropdown-menu"  style="width: 100%" aria-labelledby="btnGroupDrop1">
+        <!-- {% for link in site.data.settings.navigation %}
+        {% assign current = nil %}
+        {% if page.url == link.url or page.layout == link.layout %}
+            {% assign current = 'active' %}
+        {% endif %} -->
+            <li class="nav-item">
+                <a class="nav-link <%=  page.title == 'Account' ?  'active' : '' %>" href="account">Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=  page.title == 'Account Profile' ?  'active' : '' %>" href="account-profile">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=  page.title == 'Account Balances' ?  'active' : '' %>" href="account-balances">My Balance</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=  page.title == 'Account Wallet' ?  'active' : '' %>" href="account-wallet">Account Wallet</a>
+            </li>
+
+        <!-- <li class="nav-item {{ current }}">
+            <a class="nav-link {{ current }}" href="{{ link.urlTo }}">{{ link.text }}</a>
+        </li> -->
+        <!-- {% endfor %} -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,514 @@
+<!--- layout: default - -->
+<style>
+</style>
+
+<div style="background-image:url('/images/rails-495750_1920.jpg');  background-position: 50% 69%;background-repeat: no-repeat;  background-size: cover;height: 280px;display: block;    width: 100%;">
+
+  <div class="container-fluid inner">
+    <div class="row">
+      <div class="col-sm-6">
+        <br />
+        <br />
+        <h1 class="display-8 text-black">We help bring creative projects to life.</h1>
+        <p class="text-muted">Artists, musicians, filmmakers, designers, and other creators
+          <br />find the resources and support you need</p>
+
+        <a href="" class="btn btn-primary">
+          <strong>Start your journey today
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </strong>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div> 
+
+<!-- scroll through crowdsale -->
+<div class="container-fluid inner mt-5 hidden-sm-up" style="height: 560px;">
+  <% for(let x = 0 ; x < 1 ; x ++ ) { %>
+
+  <div>
+
+    <div class="card ">
+      <div class="ribbon-wrapper">
+        <div class="ribbon-front">
+          Project of the Day
+        </div>
+        <div class="ribbon-edge-topleft"></div>
+        <div class="ribbon-edge-topright"></div>
+        <div class="ribbon-edge-bottomleft"></div>
+        <div class="ribbon-edge-bottomright"></div>
+        <div class="ribbon-back-left"></div>
+        <div class="ribbon-back-right"></div>
+      </div>
+      <a href="" class="thumbnaidl">
+        <img class="img-fluid" src="https://unsplash.it/576/210?image=531" />
+      </a>
+
+      <div class="card-block">
+
+        <div class="row ">
+          <div class="col-sm-6">
+
+            <!--<a href="" class="thumbnail"><img class="img-fluid img-thumbnail" src="images/eat-1892990_1920.jpg" /></a>-->
+
+          </div>
+          <div class="col-sm-6">
+
+
+            <h4 class="display-8">
+              <a href="/project">I'm making a Potato salad</a>
+            </h4>
+            <p class="text-muted">By
+              <strong>
+                <a href="/project" class="text-muted">Otto Payne</a>
+              </strong> in
+              <strong>London, UK</strong>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate et odio eu tempus. Donec turpis
+              justo.Suspendisse vulputate et odio eu tempus. Suspendisse vulputate et odio eu tempus. </p>
+
+            <br />
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <!-- <p>50% funded</p> -->
+            <p>50% funded</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer text-muted mt-4" style="background: #f7f8fa">
+        <div class="row ">
+          <div class="col-sm-12">
+            <div class="row ">
+              <div class="col">
+                <p class="mt-0 mb-0">Pledged</p>
+                <h5 class="mt-0 mb-0">&dollar;50,000</h5>
+              </div>
+              <div class="col">
+                <p class="mt-0 mb-0">Backers</p>
+                <h5 class="mt-0 mb-0">250</h5>
+              </div>
+              <div class="col">
+                <p class="mt-0 mb-0">Days Left</p>
+                <h5 class="mt-0 mb-0">27</h5>
+              </div>
+              <div class="col">
+                <p class="mt-0 mb-0">Funding goal</p>
+                <h5 class="mt-0 mb-0">&dollar;175,000</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+</div>
+
+<div class="container-fluid inner hidden-xs-down" style="height: 560px;">
+  <br />
+  <br />
+  <div class="row mt-5">
+    <div class="col-3 carousel-list">
+      <div class="row">
+        <div class="col-sm-10">
+          <ul class="nav flex-column justify-content-end text-right ">
+              <% for(let x = 0 ; x < styles.length ; x++ ) { %>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#<%= styles[x] %>" data-slide="<%= x %>"> <%= styles[x] %></a>
+            </li>
+            <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="explore">View all styles</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+
+      <div id="home-swiper" class="swiper-container">
+        <div class="swiper-wrapper">
+
+          <% for(crowdsale in crowdsales) { %>
+          <div class="swiper-slide" data-hash="<%= crowdsale.name %>">
+            <div>
+              <h2>Staff picks:
+                <span class="text-primary"><%= crowdsale.address %></span>
+              </h2>
+              <br />
+              <div class="cardd ">
+
+                <div class="card-blocks">
+
+                  <div class="row ">
+                    <div class="col-sm-6">
+
+                      <!--<a href="" class="thumbnail"><img class="img-fluid img-thumbnail" src="images/eat-1892990_1920.jpg" /></a>-->
+                      <a href="" class="thumbnaidl">
+                        <img class="img-fluid" src="https://unsplash.it/310/210?image=56" />
+                      </a>
+
+                    </div>
+                    <div class="col-sm-6">
+
+
+                      <h4 class="display-8">
+                        <a href="/project">I'm making a Potato salad</a>
+                      </h4>
+                      <p class="text-muted">By
+                        <strong>
+                          <a href="/project" class="text-muted">Otto Payne</a>
+                        </strong> in
+                        <strong>London, UK</strong>
+                      </p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate et odio eu tempus. Donec
+                        turpis justo.Suspendisse vulputate et odio eu tempus. Suspendisse vulputate et odio eu tempus. </p>
+
+                      <br />
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width:50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <p>50% funded</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer text-muted mt-4" style="background: #f7f8fa">
+                  <div class="row ">
+                    <div class="col-sm-12">
+                      <div class="row ">
+                        <div class="col">
+                          <p class="mt-0 mb-0">Pledged</p>
+                          <h5 class="mt-0 mb-0">&dollar;50,000</h5>
+                        </div>
+                        <div class="col">
+                          <p class="mt-0 mb-0">Backers</p>
+                          <h5 class="mt-0 mb-0">250</h5>
+                        </div>
+                        <div class="col">
+                          <p class="mt-0 mb-0">Days Left</p>
+                          <h5 class="mt-0 mb-0">27</h5>
+                        </div>
+                        <div class="col">
+                          <p class="mt-0 mb-0">Funding goal</p>
+                          <h5 class="mt-0 mb-0">&dollar;175,000</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <% } %>
+
+        </div>
+
+
+      </div>
+
+      <script>
+        var swiper = null;
+        function start_swiper() {
+          swiper = new Swiper('#home-swiper', {
+            pagination: '.swiper-pagination',
+            initialSlide: 1,
+            paginationClickable: false,
+            hashnav: false,
+            hashnavWatchState: false,
+            replaceState: true,
+            keyboardControl: true,
+            mousewheelControl: true,
+            simulateTouch: false,
+            direction: 'vertical',
+
+            onInit: function (swiper) {
+              // do something
+              $('.carousel-list .nav-link').eq(swiper.activeIndex).addClass('active');
+            }
+          });
+          // Later add callback
+          swiper.on('init', function () {
+            //alert('clickedSlide', swiper.activeIndex);
+
+            $('.carousel-list .nav-link.active').removeClass('active');
+            $('.carousel-list .nav-link').eq(swiper.activeIndex).addClass('active');
+          });
+          swiper.on('slideChangeStart', function () {
+            console.log('clickedSlide', swiper.activeIndex);
+            $('.carousel-list .nav-link.active').removeClass('active');
+            $('.carousel-list .nav-link').eq(swiper.activeIndex).addClass('active');
+          });
+          swiper.on('slideChangeEnd', function () {
+            //$('.carousel-list .nav-link.active').removeClass('active');
+            $('.carousel-list .nav-link').eq(swiper.activeIndex).addClass('active');
+            console.log('slide change start', swiper.activeIndex);
+          });
+          $('.carousel-list a[data-slide]').click(function (e) {
+            e.preventDefault();
+            swiper.slideTo($(this).data('slide'));
+          })
+        }
+        setTimeout(start_swiper, 100);
+
+      </script>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class=" light-blue  mt-3 pt-5 pb-5">
+  <div class="container-fluid inner">
+
+
+    <div class="row">
+      <div class="col-8">
+        <h3>Editors choice</h3>
+      </div>
+      <div class="col-4">
+        <a href="explore" class="btn btn-secondary pull-right">View all</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="boxes swiper-container">
+        <div class="row mt-2 swiper-wrapper">
+
+          <!-- {% for project in site.data.projects limit:4 %} -->
+          <% for (crowdsale in crowdsales) { %>
+          <div class="col-md-4 col-lg-3 col-sm-6 col-xs-3  col-12 swiper-slide">
+             <!-- {% include box project=project %} -->
+             <%- include("partials/box", {crowdsale:crowdsales[crowdsale]}) %>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="swiper-button-next hidden-lg-up">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="swiper-button-prev hidden-lg-up">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-5">
+  <div class="container-fluid inner">
+
+    <div class="row">
+      <div class="col-8">
+        <h3>Popular</h3>
+      </div>
+      <div class="col-4">
+        <a href="explore" class="btn btn-secondary pull-right">View more</a>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="boxes swiper-container">
+        <div class="row mt-2 swiper-wrapper">
+
+          <% for (crowdsale in crowdsales) { %>
+          <div class="col-md-4 col-lg-3 col-sm-6 col-xs-3  col-12 swiper-slide">
+            <%- include("partials/box", {crowdsale:crowdsales[crowdsale]}) %>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="swiper-button-next hidden-lg-up">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="swiper-button-prev hidden-lg-up">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class=" light-blue  mt-5 pt-5 pb-5">
+  <div class="container-fluid inner">
+
+
+    <div class="row">
+      <div class="col-8">
+        <h3 class="explore">Recent additions</h3>
+      </div>
+      <div class="col-4">
+        <a href="" class="btn btn-secondary pull-right">View more</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="boxes swiper-container">
+        <div class="row mt-2 swiper-wrapper">
+
+          <% for (crowdsale in crowdsales) { %>
+          <div class="col-md-4 col-lg-3 col-sm-6 col-xs-3  col-12 swiper-slide">
+            <%- include("partials/box", {crowdsale:crowdsales[crowdsale]}) %>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="swiper-button-next hidden-lg-up">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="swiper-button-prev hidden-lg-up">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pt-3 pb-3">
+
+
+  <div class="container-fluid img-profiles">
+
+
+
+    <div class="row no-gutters mt-5">
+      <% for(let i = 0 ; i < 7 ; i++) { %>
+      <div class="col">
+        <img src="https://randomuser.me/api/portraits/men/<%= i %>.jpg" class="img-fluid img-profile" />
+      </div>
+      <% } %>
+    </div>
+    <div class="row no-gutters mt-1">
+
+      <div class="col hidden-md-down">
+        <img src="https://randomuser.me/api/portraits/men/9.jpg" class="img-fluid img-profile" />
+      </div>
+
+      <div class="col-md-9">
+        <div class="row mt-1">
+          <div class="col-md-8">
+            <h1 class="mt-3">Discover great projects
+              <br />with your Facebook friends.</h1>
+            <br />
+          </div>
+          <div class="col-md-4">
+            <a href="" class="btn btn-primary mt-lg-5 mt-md-4">Invite your friends and family</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col hidden-md-down">
+        <img src="https://randomuser.me/api/portraits/women/10.jpg" class="img-fluid img-profile" />
+      </div>
+
+    </div>
+
+    <div class="row no-gutters mt-1">
+
+      <% for(let i = 0 ; i < 7 ; i++) {%>
+      <div class="col">
+        <img src="https://randomuser.me/api/portraits/women/<%= i %>.jpg" class="img-fluid img-profile" />
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+<div class=" light-blue  mt-5 pt-5 pb-5">
+
+  <div class="container-fluid">
+
+
+    <div class="row mt-3">
+      <!--<div class="col-sm-4">
+		        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150" class="img-fluid" />
+			</div>-->
+      <div class="col-12 col-md-10 offset-md-1">
+        <div class="row">
+          <div class="col-sm-10 offset-sm-1">
+            <h3 class="display-6 text-center">How does it work?</h3>
+            <p class="text-center text-muted">Access your data anywhere from any device</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+
+          <div class="col-5  offset-1">
+            <p>Access your data from absolutely anywhere and on any device your phone, ipad, laptop. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.</p>
+          </div>
+
+          <div class="col-5  offset-1">
+            <p>Create your own graphs and visualizztions to you can capture trends immediately. Donec nec tortor lorem. Integer
+              nulla quam, convallis ut consectetur vel, dignissim et ex.</p>
+          </div>
+
+          <div class="col-5  offset-1">
+            <p>Ideal for shop owners selling over 100 products a day. We make sure you find our what your best products are,
+              what products you could sell.</p>
+          </div>
+
+          <div class="col-5  offset-1">
+            <p> Nam porttitor quam pellentesque, mollis arcu tincidunt, faucibus tellus. Fusce nec sem ut risus auctor iaculis
+              id a libero. </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 pt-2 pb-2">
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+
+
+      <div class="col-12 col-md-10 offset-md-1">
+        <div class="card ">
+          <div class="card-block">
+            <div class="row">
+              <div class="col-sm-8">
+                <h4 class="card-title">We crowdfund amazing inventions</h4>
+                <p class="card-text">Build your own crowdfunding or fundraising website. Raise money online or through your Facebook profile.
+                  Get started today.</p>
+              </div>
+              <div class="col-sm-4 text-center">
+                <br />
+                <a href="start" class="btn btn-primary btn-lg">Start your project
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var box_swiper = new Swiper('.boxes', {
+    slidesPerView: 'auto',
+    grabCursor: true,
+    freeMode: true,
+    freeModeMomentum: false,
+    scrollbarHide: true,
+    scrollbarDraggable: true,
+    scrollbarSnapOnRelease: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev'
+  });
+</script>

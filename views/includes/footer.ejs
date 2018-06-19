@@ -1,0 +1,155 @@
+<footer class="footer text-white mt-5">
+  <div class="container">
+    <div class="row mt-5">
+
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-4 col-md-3">
+            <h5 class="mt-4 mb-4">About us</h5>
+            <ul class="list-unstyled">
+
+
+              <li>
+                <a href="/about">How it works</a>
+              </li>
+              <li>
+                <a href="/about">About us</a>
+              </li>
+              <li>
+                <a href="/about">Partners</a>
+              </li>
+              <li>
+                <a href="account-payment">Payment methods</a>
+              </li>
+              <li>
+                <a href="/about">Glossary</a>
+              </li>
+              <li>
+                <a href="/about">Blog</a>
+              </li>
+
+
+            </ul>
+          </div>
+
+          <div class="col-4 col-md-3">
+            <h5 class="mt-4 mb-4">Help</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="typography">FAQ</a>
+              </li>
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="typography">Typography</a>
+              </li>
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="contact">Support</a>
+              </li>
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="typography">Terms of Use</a>
+              </li>
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="typography">Privacy Policy</a>
+              </li>
+              <li>
+                <a class="transition-all navy-400 hover-navy-500" href="typography">Cookie Policy</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-4 col-md-3">
+            <h5 class="mt-4 mb-4">Contact</h5>
+            <p>
+              CrowdFunding by ExpressPixel
+              <br /> 32 Shire Oak Road
+              <br /> LN2 1ZU London
+              <br /> Tel: +1-202-555-0176
+              <br /> example@expresspixel.com
+              <br />
+            </p>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h5 class="mt-4 mb-4">Join us</h5>
+            <ul class="social-network social-circle">
+              <li>
+                <a href="#" class="icoFacebook" title="Facebook">
+                  <i class="fa fa-facebook fa-fw"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="icoTwitter" title="Twitter">
+                  <i class="fa fa-twitter fa-fw"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="icoLinkedin" title="Linkedin">
+                  <i class="fa fa-linkedin fa-fw"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+    <br />
+    <br />
+    <p class="text-center">Copyright &copy; 2017, CrowdFunding by ExpressPixel.com</p>
+  </div>
+</footer> 
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+<script>
+  var eventTime = moment().add(8, 'hours'); // Timestamp - Sun, 21 Apr 2013 13:00:00 GMT
+  var currentTime = 1366547400; // Timestamp - Sun, 21 Apr 2013 12:30:00 GMT
+  var diffTime = eventTime - currentTime;
+  var duration = moment.duration(diffTime * 1000, 'milliseconds');
+  var interval = 1000;
+
+  setInterval(function () {
+    duration = moment.duration(duration - interval, 'milliseconds');
+    $('#current_time').text(moment().format('MMMM Do YYYY, h:mma'));
+  }, interval);
+</script>
+<script src="js/toastr.js"></script>
+</body>
+
+</html>
+
+<!--
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="text-muted">&copy; {{ site.title | escape }}</span>
+      </div>
+      {% if site.author %}
+      <div class="col-md-4">
+        <span class="text-muted"><a href="mailto:{{ site.email }}">{{ site.author | escape }}</a></span>
+      </div>
+      {% endif %}
+      <div class="col-md-4">
+        <ul class="social-media-list">
+          {% if site.github_username %}
+          <li>
+            {% include icon-github username=site.github_username %}
+          </li>
+          {% endif %}
+
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter username=site.twitter_username %}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>-->

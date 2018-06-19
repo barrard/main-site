@@ -1,0 +1,88 @@
+<div class="card box">
+  <a :href="'crowdsale/'+ crowdsale.id" class="center-text">
+    <span v-if="!photo_count"class="absolute top left">Upload some images</span>
+    <span v-else class="absolute top left">Photo # {{ photo_count }}</span>
+    <img :src="'crowdsale_photos/'+crowdsale.photos[photo_count - 1]" class="img-fluid hidden-xs-down"
+    />
+    <img :src="crowdsale.photos[photo_count - 1]" class="img-fluid hidden-sm-up" />
+  </a>
+  <div class="card-block" class="pb-1" style="position: relative; padding-bottom: 60px; min-height: 250px;">
+
+    <h6>
+      <a :href="'crowdsale/'+ crowdsale.id">{{ crowdsale.title }}</a>
+    </h6>
+    <!-- <p class="text-muted">{{ crowdsale.owner }}By -->
+      <!-- <strong>
+        <a :href="'crowdsale/'+ crowdsale.id" class="text-muted">{{ crowdsale.title }}</a>
+      </strong> -->
+    </p>
+    <p class="desc">{{ crowdsale.description }}</p>
+    <!-- <p class="desc">{{ crowdsale.symbol }}</p> -->
+    <!-- <p class="desc">{{ crowdsale.goal }}</p> -->
+    <!-- <p class="desc">{{ crowdsale.weiRaised }}</p> -->
+    <!-- <p class="desc">{{(crowdsale.weiRaised / crowdsale.goal)*100}}</p> -->
+
+    <!-- <div style="position: absolute; bottom: 10px; width: 86%; ">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ crowdsale.percent }}%" aria-valuenow="{{ crowdsale.percent }}"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <p class="mb-1">{{crowdsale.percent}}% funded</p>
+      <p class="mb-1">{{crowdsale.amount_down_payment}}% funded</p>
+    </div> -->
+  <div class="card-footer text-muted">
+    <div class="row ">
+      <div class="col-12">
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Downpayment</p>
+            <h6 class="mt-0 mb-0">
+              <strong>420</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Amount Needed</p>
+            <h6 class="mt-0 mb-0">
+              <strong>Wei</strong>{{crowdsale.weiRaised}}</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Number of Days</p>
+            <h6 class="mt-0 mb-0">
+              <strong>14</strong>
+              <!-- TODO -->
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">Number of Tokens</p>
+            <h6 class="mt-0 mb-0">
+              <strong>420</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">ETH/token</p>
+            <h6 class="mt-0 mb-0">
+              <strong>Wei</strong>{{crowdsale.weiRaised}}</strong>
+            </h6>
+          </div>
+          <div class="col-4 text-center">
+            <p class="mt-0 mb-0">USD/ETH</p>
+            <h6 class="mt-0 mb-0">
+              <strong>${{ current_eth_price }}</strong>
+              <!-- TODO -->
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+</div>

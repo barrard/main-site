@@ -1,0 +1,156 @@
+<br />
+<br />
+<br />
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h1>Settings</h1>
+      <br />
+      <br />
+      <% include partials/account-menu.ejs %>
+
+        <br />
+        <br />
+        <br />
+
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h3>Manage your HD wallet</h3>
+            <a target="_blank" href='https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki'>BIP32</a>
+            <br>
+            <a target="_blank" href='https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki'>BIP39</a>
+            <br>
+            <a target="_blank" href='https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki'>BIP44</a>
+            <br>
+            <p>Created with
+              <a target="_blank" href='https://github.com/ConsenSys/eth-lightwallet'>Eth Lightwallet</a>
+            </p>
+            <p>This is still in testing phase, we don not recommend you store large amounts of ETH here. </p>
+
+        <% if (!user.has_wallet) { %>
+          <p>A wallet is required to use this app</p>
+
+            <div class="row">
+              <div class="form-group col-md-3 ">
+                <label for="pw">Add random text to create more entropy for a more secure wallet</label>
+
+                <textarea name="text" placeholder="add random text to create more entropy for your new wallet. See BIP39 " class="form-control form-control-lg" name="" id="" cols="30" rows="5"></textarea>
+              </div>
+
+                <div class="col-md-3 form-group">
+                  <label for="pw">Password</label>
+
+                    <input class="form-control form-control-lg" type="password" name="pw" placeholder="please dont forget your password">
+                    <br>
+                    <label for="pw2">Confirm Password</label>
+
+                    <input class="form-control form-control-lg" type="password" name="pw2" placeholder="please dont forget your password">
+                    <br>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+            <div class="row">
+              <br>
+              <br>
+              <p onclick="create_wallet()" class="btn btn-primary">Create a Wallet</p>
+              <br>
+            </div>
+          <% } %>
+          <% if (user.has_wallet) { %>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table mt-5">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th class="center-text">#</th>
+                      <th class="center-text">Account</th>
+                      <th class="center-text">ETH Balance</th>
+                      <th class="center-text">Shared Equity Tokens</th>
+                      <th class="center-text">View account details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let x = 0 ; x < 1; x++){ %>
+                    <tr>
+                      <td class="center-text"><%= x %></td>
+                      <td class="center-text"><%= user.public_addresses[x] %></td>
+                      <td class="center-text" data-account_balance="<%= user.public_addresses[x] %>"></td>
+                      <td class="center-text">0</td>
+                      <td class="center-text"><button type="button" class="btn btn-info">Account Details</button></td>
+                    </tr>
+                    <% } %>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <% } %>
+
+          </div>
+
+        </div>
+
+
+    </div>
+
+
+
+  </div>
+  <br />
+  <br />
+  <br />
+</div>
+<script>
+  const errors = <%- JSON.stringify(errors) %>
+  if(errors.length){
+    console.log(errors)
+    Array.prototype.forEach.call(errors, (error)=>{
+      new Toast(error, Toast.TYPE_ERROR, 3000)
+
+    })
+  }
+  const user_has_wallet = <%= user.has_wallet%>
+  var user_public_addresses = <%- JSON.stringify(user.public_addresses) %>
+  console.log(user_public_addresses[0])
+  // user_public_addresses = JSON.parse(user_public_addresses)
+  if(user_has_wallet){
+    $.post('/all_account_balances', {
+      accounts:user_public_addresses[0]//sending an array to keep the loop function on the server incase later i want to loop over more accoutns
+    }, (resp)=>{
+      // resp.forEach((balance_obj)=>{
+        console.log(resp[0])
+        balance_obj = (JSON.parse(resp[0]))
+        console.log(balance_obj)
+        $(`[data-account_balance="${balance_obj.account}"]`).text(balance_obj.balance)
+      // })
+    })
+  }
+  function create_wallet() {
+    $.post('/create_wallet', {
+      pw: $('[name="pw"]').val(),
+      pw2: $('[name="pw2"]').val(),
+      text: $('[name="text"]').val()
+    },
+    (resp)=>{
+      console.log('resp')
+      console.log(resp)
+      if(resp.errors){
+        resp.errors.forEach(err => {
+          new Toast(err.msg, Toast.TYPE_ERROR, 3000)
+        });
+      }else if(resp.success){
+        new Toast(resp.success, Toast.TYPE_DONE, 3000)
+        setTimeout(() => {
+          location.reload()
+        }, 1000);
+
+      }
+    })
+  }
+</script>

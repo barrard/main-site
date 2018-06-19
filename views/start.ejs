@@ -1,0 +1,132 @@
+<!---
+layout: page
+title: Pricing
+- -->
+
+<br />
+<br />
+<br />
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4 offset-sm-4">
+      <h1>Start a Equity Share campaign</h1>
+
+      <br />
+      <br />
+      <!-- <form action=""> -->
+        <div class="form-group">
+          <label for="home_style">Home style</label>
+
+          <div class="btn-group  btn-block">
+
+            <button class="btn btn-secondary btn-lg  btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" data-home_style_button="true">
+              Home Style
+            </button>
+            <div class="dropdown-menu" style="width: 100%">
+              <% for(style in styles ) { %>
+                <p id="home_style" onclick="set_btn_txt(this,'data-home_style_button')" class="dropdown-item center-text">
+                  <%= styles[style] %>
+                </p>
+                <% } %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dollar_goal">How much money would you like to raise?</label>
+          <input type="text" class="form-control form-control-lg" id="dollar_goal" aria-describedby="dollar goal" placeholder="$500,000">
+          <p>Current dollar value of Etherium:
+            <span>$
+              <%= eth_price_data.price %>
+            </span> @
+            <span id="eth_price_timestamp">
+              <%= eth_price_data.time %>
+            </span>
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">How much do you have for a downpayment</label>
+          <textarea type="text" class="form-control form-control-lg" id="down_payment" aria-describedby="down_payment" placeholder="i.e. 10%, $10,0000 "></textarea>
+          <p id="passwordHelpBlock" class="form-text text-muted">
+          </p>
+        </div>
+
+
+        </fieldset>
+        <!-- <a href="edit"  class="btn btn-primary btn-lg" onclick="init_campaign()">Create a campaign</a> -->
+        <button onclick="init_new_crowdsale()" class="btn btn-primary">Create a crowdsale</button>
+        <!-- <input class="btn btn-primary btn-block" name="submit" type="submit" value="Create a campaign"> -->
+
+      <!-- </form> -->
+
+
+    </div>
+
+
+
+  </div>
+  <br />
+  <br />
+  <br />
+</div>
+<script>
+
+
+  function init_new_crowdsale() {
+
+    $.post('/init_crowdsale', {
+      home_style: $('#home_style').text(),
+      amount_money_needed: $('#dollar_goal').val(),
+      amount_down_payment: $('#down_payment').val()
+    }, (resp) => {
+      if (resp.errors) {
+        console.log('errrrors init crowdsale')
+        resp.errors.forEach(err => {
+          new Toast(err.msg, Toast.TYPE_ERROR, 3000)
+        });
+      } else if (resp.success) {
+        console.log('success init crowdsale')
+        new Toast(resp.success, Toast.TYPE_DONE, 3000)
+        setTimeout(() => {
+          location.pathname = 'edit-basics'
+        }, 1000);
+
+      }
+    })
+  }
+
+  (() => {
+    var time = parseInt($('#eth_price_timestamp').text())
+    console.log(time)
+    var d = new Date(time);
+    var offset = (new Date().getTimezoneOffset() * 60000);
+    var n = new Date(d.getTime() - offset);
+    console.log(n)
+    n = d;
+    const day = n.getDate()
+    const month = n.getMonth() + 1
+    const year = n.getFullYear()
+    var hour = String(n.getHours())
+    console.log(hour)
+    if (hour == 0) hour = 12;
+    var ampm;
+    console.log(hour)
+    if (hour > 12) {
+      hour = String(hour - 12)
+      ampm = 'PM'
+    } else {
+      ampm = 'AM'
+    }
+    if (hour.length < 2) { hour = `0${hour}` }
+    var minute = String(n.getMinutes())
+    if (minute.length < 2) { minute = `0${minute}` }
+    var second = String(n.getSeconds())
+    if (second.length < 2) { second = `0${second}` }
+    var date_time = `${hour}:${minute}:${second} ${ampm} - ${month}/${day}/${year}`
+    $('#eth_price_timestamp').text(date_time)
+  })()
+  function set_btn_txt(btn, btn_data) {
+    $(`[${btn_data}]`).text($(btn).html())
+  }
+</script>
