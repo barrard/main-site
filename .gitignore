@@ -1,3 +1,4 @@
 node_modules
 .env
-uploads/*
+public/crowdsale_uploads/*
+public/user_profile_pics/*
